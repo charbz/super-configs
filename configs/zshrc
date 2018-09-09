@@ -19,6 +19,7 @@ alias updateslack="cp ~/.slackrc.js /Applications/Slack.app/Contents/Resources/a
 alias web="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias c="vim $HOME/.hyper_plugins/local/power-status/index.js"
 alias cc="cd ~/.hyper_plugins/local/power-status"
+alias conf="cd $HOME/workspace/super-configs"
 
 ######################
 # Include API keys 
