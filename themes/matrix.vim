@@ -1,6 +1,6 @@
-" Name:       paramount.vim
+" Name:       matrix.vim
 " Version:    0.1.0
-" Maintainer: github.com/owickstrom
+" Maintainer: github.com/charbz
 " License:    The MIT License (MIT)
 "
 " A minimal colorscheme for Vim that only puts emphasis on the paramount.

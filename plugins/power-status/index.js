@@ -290,7 +290,7 @@ exports.decorateHyper = (Hyper, { React }) => {
     }
 
     openVimrc(event) {
-      shell.openItem('/Users/charbel.ghossain/.vimrc');
+      shell.openItem('~/.vimrc');
     }
 
     openFilename(event) {
