@@ -1,0 +1,71 @@
+syntax on
+colorscheme matrix
+
+au BufNewFile,BufRead *.py set
+\ tabstop=2
+\ shiftwidth=2
+
+set softtabstop=2 noexpandtab
+set shiftwidth=2
+
+autocmd FileType javascript,python autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+set incsearch ignorecase hlsearch
+
+" Press space to clear search highlighting and any message already displayed.
+nnoremap <silent> <Return> :silent noh<Bar>echo<CR>
+
+set number
+highlight LineNr term=bold cterm=NONE ctermfg=237 ctermbg=234 gui=NONE guifg=233 guibg=NONE
+set numberwidth=4
+
+" Pathogen
+execute pathogen#infect()
+filetype plugin indent on
+augroup filetype javascript syntax=javascript
+
+" Plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'dyng/ctrlsf.vim'
+call plug#end()
+
+" Status line
+set laststatus=2
+let g:lightline = {
+      \ 'colorscheme': 'seoul256',
+      \ }
+
+" NERDTree
+let NERDTreeShowHidden=1
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" GitGutter
+let g:gitgutter_override_sign_column_highlight = 0
+highlight GitGutterAdd ctermfg=40
+highlight GitGutterChange ctermfg=106
+highlight GitGutterDelete ctermfg=203
+highlight GitGutterChangeDelete ctermfg=203
+
+" CtrlSF
+let g:ctrlsf_auto_focus = {
+    \ "at": "start"
+    \ }
+let g:ctrlsf_context = '-B 0 -A 0'
+let g:ctrlsf_default_view_mode = 'compact'
+
+" Some key mappings for plugins
+map f :Files<CR>
+map t :NERDTreeFocus<CR>
+map s :CtrlSF

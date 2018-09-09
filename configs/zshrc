@@ -1,0 +1,27 @@
+######################
+# Oh-my-Zsh options
+######################
+
+export ZSH="/Users/charbel.ghossain/.oh-my-zsh"
+ZSH_THEME="matrix"
+ENABLE_CORRECTION="true"
+plugins=( git colored-man-pages jira jsontools web-search )
+source $ZSH/oh-my-zsh.sh
+
+######################
+# Alias Definitions
+######################
+
+alias ws="cd $HOME/workspace"
+alias Desktop="cd $HOME/Desktop"
+alias slack="export SLACK_DEVELOPER_MENU=true && open -a /Applications/Slack.app"
+alias updateslack="cp ~/.slackrc.js /Applications/Slack.app/Contents/Resources/app.asar.unpacked/src/static/ssb-interop.js"
+alias web="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+alias c="vim $HOME/.hyper_plugins/local/power-status/index.js"
+alias cc="cd ~/.hyper_plugins/local/power-status"
+
+######################
+# Include API keys 
+######################
+
+source ~/.zsh-secrets.zsh
