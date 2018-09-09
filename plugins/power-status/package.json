@@ -1,0 +1,23 @@
+{
+  "name": "power-status",
+  "version": "1.0.0",
+  "description": "powerful shell status bar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "power-status"
+  ],
+  "author": "Charbel Ghossain",
+  "license": "ISC",
+  "dependencies": {
+    "after-all-results": "^2.0.0",
+    "color": "^2.0.0",
+    "node-rest-client": "^3.1.0",
+    "tildify": "^1.2.0"
+  },
+  "devDependencies": {
+    "newsapi": "^2.3.0"
+  }
+}

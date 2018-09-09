@@ -19,8 +19,15 @@ case "$1" in
         echo "updating slackrc.js"
         cp ./themes/slackrc.js /Applications/Slack.app/Contents/Resources/app.asar.unpacked/src/static/ssb-interop.js
 	;;
+    powerstatus)
+        echo "updating powerstatus plugin"
+	cp ./plugins/power-status/index.js ~/.hyper_plugins/local/power-status/index.js
+	cp ./plugins/power-status/render.js ~/.hyper_plugins/local/power-status/render.js
+	cp ./plugins/power-status/package.json ~/.hyper_plugins/local/power-status/package.json
+	echo "Finished updating - dont forget to do npm install in ~/.hyper_plugins/local/power-status"
+        ;;
     *)
-        echo "Usage: $0 {vimrc|zshrc|slackrc|zsh-theme|vim-theme}"
+        echo "Usage: $0 {vimrc|zshrc|hyper|slackrc|zsh-theme|vim-theme|powerstatus}"
         exit 1
         ;;
 esac
