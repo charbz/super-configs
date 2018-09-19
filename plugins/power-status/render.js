@@ -43,21 +43,20 @@ class footer extends React.PureComponent {
       	  <div className="component_component component_vim">
       		  <div className="component_item item_icon item_vim item_clickable"
       		       title="Vim Mode"
-      		       onClick={this.handleVimClick}
       		       hidden={!this.state.visible}>
       		   Vim
       	      </div>
               <div className={`vim_helper ${!this.state.vimHelperVisible ? 'height-hidden' : ''}`}>
 		            <div className="vim_title_container">
                   <div className="vim_title">Vim Menu</div>
-                  <div className="closer" onClick={this.handleVimClick}>►</div>
+                  <div className="closer">►</div>
                 </div>
                 <ul>
                   <li className="hint">File Search: <span>[esc] f</span></li>
                   <li className="hint">Keyword Search: <span>[esc] s</span></li>
                   <li className="hint">Dir Tree: <span>[esc] t</span></li>
                   <li onClick={this.openFilename}>Open {this.state.filename}</li>
-                  <li onClick={this.openVimrc}>Open ~/.vimrc</li>
+                  <li>Open ~/.vimrc</li>
                 </ul>
               </div>
       	  </div>

@@ -60,36 +60,9 @@ const setCwd = (pid, action) => {
       cwd = stdout.trim();
       setGit(cwd);
       global.gitlocked = true;
-      setTimeout(function() { global.gitlocked = false; }, 1000);
+      setTimeout(function() { global.gitlocked = false; }, 2000);
     });
   }
-};
-
-const checkVim = (pid, action) => {
-  if (global.locked) return;
-  let psResult='';
-  let lsofResult='';
-  let subPid = '';
-  let filename = '';
-  let temp;
-  exec(`ps -f | grep vim | awk '$3=="${pid}"' | tr -s ' '`, (err, stdout) => {
-    if (stdout && stdout.length > 0) {
-      showMe();
-      psResult = stdout.trim().split(' ');
-      subPid = psResult[1];
-      exec(`lsof -p ${subPid} | grep vim.*\.swp | tr -s ' ' | cut -d ' ' -f9-`, (err, stdout) => {
-	lsofResult = stdout.trim();
-	filename = lsofResult.substr(0,lsofResult.length-4);
-	temp = filename.lastIndexOf('/.');
-	filename = filename.substr(0, temp+1) + filename.substr(temp+2, filename.length);
-	global.filename = filename;
-	global.locked = true;
-	setTimeout(function() { global.locked = false; }, 3000);
-      });
-    } else {
-      hideMe();
-    }
-  });
 };
 
 const isGit = (dir, cb) => {
@@ -241,7 +214,6 @@ exports.middleware = (store) => (next) => (action) => {
       const enterKey = data.indexOf('\n') > 0;
       if (enterKey) {
 	setCwd(pid, action);
-	checkVim(pid, action);
       }
     break;
 
@@ -277,20 +249,11 @@ exports.decorateHyper = (Hyper, { React }) => {
 
       this.handleCwdClick = this.handleCwdClick.bind(this);
       this.handleBranchClick = this.handleBranchClick.bind(this);
-      this.handleVimClick = this.handleVimClick.bind(this);
       this.openFilename = this.openFilename.bind(this);
     }
 
     handleCwdClick(event) {
       shell.openExternal('file://'+this.state.cwd);
-    }
-
-    handleVimClick(event) {
-      global.vimHelperVisible = !global.vimHelperVisible;
-    }
-
-    openVimrc(event) {
-      shell.openItem('~/.vimrc');
     }
 
     openFilename(event) {
@@ -411,7 +374,6 @@ exports.decorateHyper = (Hyper, { React }) => {
 		    "div",
 		    { className: "component_item item_icon item_vim item_clickable",
 		      title: "Vim Mode",
-		      onClick: this.handleVimClick,
 		      hidden: !this.state.visible },
 		    "Vim"
 		  ),
@@ -428,7 +390,7 @@ exports.decorateHyper = (Hyper, { React }) => {
 		      ),
 		      React.createElement(
 			"div",
-			{ className: "closer", onClick: this.handleVimClick },
+			{ className: "closer" },
 			"\u25BA"
 		      )
 		    ),
@@ -473,7 +435,7 @@ exports.decorateHyper = (Hyper, { React }) => {
 		      ),
 		      React.createElement(
 			"li",
-			{ onClick: this.openVimrc },
+			{},
 			"Open ~/.vimrc"
 		      )
 		    )
@@ -567,7 +529,7 @@ exports.decorateConfig = (config) => {
                 z-index: 100;
                 font-size: 15px;
                 height: 35px;
-                background-color: ${colors.background};
+                background-color: #1d1d1d;
                 cursor: default;
                 -webkit-user-select: none;
                 transition: opacity 250ms ease;
@@ -618,9 +580,9 @@ exports.decorateConfig = (config) => {
 	      color:#8a8a8a;
 	      width: auto;
 	      margin-left: 16px;
-	      border-left: 1px solid #4a4a4a;
-	      border-right: 1px solid #4a4a4a;
-	      background: #1b1b1b;
+	      /*border-left: 1px solid #4a4a4a;*/
+	      /*border-right: 1px solid #4a4a4a;/*
+	      /*background: #1b1b1b;*/
 	    }
 	    .marquee a {
 	      color: #fff;
@@ -634,7 +596,7 @@ exports.decorateConfig = (config) => {
 	      padding-right: 5px;
 	    }
 	    .component_vim {
-	      border-left: 1px solid #424242;
+	      /*border-left: 1px solid #424242;*/
 	      padding-left: 40px;
 	    }
 	    .vim_title_container {

@@ -37,6 +37,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'dyng/ctrlsf.vim'
+Plug 'pangloss/vim-javascript'
 call plug#end()
 
 " Status line
@@ -64,6 +65,10 @@ let g:ctrlsf_auto_focus = {
     \ }
 let g:ctrlsf_context = '-B 0 -A 0'
 let g:ctrlsf_default_view_mode = 'compact'
+
+" Javascript plugin
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
 
 " Some key mappings for plugins
 map f :Files<CR>

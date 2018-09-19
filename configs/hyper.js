@@ -51,13 +51,13 @@ module.exports = {
     // custom CSS to embed in the main window
     css: `
       .header_headerRounded {
-	background: #2b2b2b;
-	border-bottom: 1px solid #424242;
+	background: #1d1d1d;
+	box-shadow: 0px 1px 5px 1px rgb(138, 208, 139);
       },
       .footer_footer {
-        background: #2b2b2b;
+        background: #1f2b1e;
 	height: 35px;
-	border-top: 1px solid #424237;
+	box-shadow: 1px -2px 5px 0px rgb(138,208,139);
       }
       .tabs_title {
         font-size: 15px !important;
@@ -156,8 +156,7 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: ["hyper-tabs-enhanced"],
-  //plugins: ["hyper-opacity"],
+  plugins: ["hyper-tabs-enhanced", "hyper-opacity"],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here

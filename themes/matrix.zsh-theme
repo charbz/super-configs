@@ -36,7 +36,9 @@ done
 # Customize PROMPT 
 ####################
 
-PS1="%{$BG[236]$FG[012]%} ✸ Charb %{$reset_color%}%{$BG[236]$FG[239]%}$SEGMENT_SEPARATOR%{$reset_color%}%{$BG[236]$FG[107]%} [ %D %t ] %{$reset_color%}%{$BG[236]$FG[239]%}$SEGMENT_SEPARATOR%{$BG[236]$FG[012]%} %~ %{$reset_color%}%{$FG[236]%}$SEGMENT_SEPARATOR%{$reset_color%}%  "
+#PS1="%{$BG[236]$FG[012]%} Charb %{$reset_color%}%{$BG[236]$FG[239]%}$SEGMENT_SEPARATOR%{$reset_color%}%{$BG[236]$FG[107]%} [ %D %t ] %{$reset_color%}%{$BG[236]$FG[239]%}$SEGMENT_SEPARATOR%{$BG[236]$FG[012]%} %~ %{$reset_color%}%{$FG[236]%}$SEGMENT_SEPARATOR%{$reset_color%}%  %{$FG[012]%}λ%{$reset_color%} "
+
+PS1="%{$BG[236]$FG[012]%} Charb %{$reset_color%}%{$BG[236]$FG[239]%}$SEGMENT_SEPARATOR%{$reset_color%}%{$BG[236]$FG[107]%} [ %D %t ] %{$reset_color%}%{$BG[236]$FG[239]%}$SEGMENT_SEPARATOR%{$BG[236]$FG[012]%} %~ %{$reset_color%}%{$FG[236]%}$SEGMENT_SEPARATOR%{$reset_color%}%  "
 
 ########################
 # Enable Colors for LS 
