@@ -12,9 +12,9 @@ I have customized my command line ( and other software ) for optimal productivit
 
 if you want a kick-ass command-line that looks like this follow (Full Installation) instructions
 
-![Command line preview](https://raw.githubusercontent.com/charbz/super-configs/master/images/prev1.png)
+![Command line preview](https://raw.githubusercontent.com/charbz/super-configs/master/images/preview.png)
 
-![Vim preview](https://raw.githubusercontent.com/charbz/super-configs/master/images/prev2.png)
+![Vim preview](https://raw.githubusercontent.com/charbz/super-configs/master/images/preview2.png)
 
 # Full Installation
 
