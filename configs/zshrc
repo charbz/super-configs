@@ -8,10 +8,21 @@ ENABLE_CORRECTION="true"
 plugins=( git colored-man-pages jira jsontools web-search encode64 )
 source $ZSH/oh-my-zsh.sh
 
+DISABLE_AUTO_TITLE="true"
+tt () {
+    echo -e "\033];$@\007"
+}
+
+tt "source"
+
+function openfile {
+  tt $1
+  vim $1
+}
+
 ######################
 # Alias Definitions
 ######################
-
 alias ws="cd $HOME/workspace"
 alias Desktop="cd $HOME/Desktop"
 alias slack="export SLACK_DEVELOPER_MENU=true && open -a /Applications/Slack.app"
@@ -21,6 +32,7 @@ alias p1="cd ~/.hyper_plugins/local/power-status"
 alias conf="cd $HOME/workspace/super-configs"
 alias update="$HOME/workspace/super-configs/update.zsh"
 alias pre="cd $HOME/workspace/PrebidWrapper"
+alias vim="openfile"
 
 ######################
 # Include API keys 

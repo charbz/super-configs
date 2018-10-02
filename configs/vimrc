@@ -17,7 +17,7 @@ nnoremap <silent> <Return> :silent noh<Bar>echo<CR>
 
 set number
 highlight LineNr term=bold cterm=NONE ctermfg=237 ctermbg=234 gui=NONE guifg=233 guibg=NONE
-set numberwidth=4
+set numberwidth=6
 
 " Pathogen
 execute pathogen#infect()
@@ -45,6 +45,9 @@ set laststatus=2
 let g:lightline = {
       \ 'colorscheme': 'seoul256',
       \ }
+
+" Set file name as tab title
+" execute 'silent !echo -e "\033];'.expand('%:t').'\007"'
 
 " NERDTree
 let NERDTreeShowHidden=1
