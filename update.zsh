@@ -26,12 +26,16 @@ case "$1" in
 	cp ./plugins/power-status/package.json ~/.hyper_plugins/local/power-status/package.json
 	echo "Finished updating - dont forget to do npm install in ~/.hyper_plugins/local/power-status"
         ;;
+    cooltabs)
+        echo "updating cooltabs plugin"
+	cp ./plugins/cool-tabs/index.js ~/.hyper_plugins/local/cool-tabs/index.js
+	cp ./plugins/cool-tabs/package.json ~/.hyper_plugins/local/cool-tabs/package.json
     hyper)
         echo "updating ~/.hyper.js"
 	cp ./configs/hyper.js ~/.hyper.js
 	;;
     *)
-        echo "Usage: $0 {vimrc|zshrc|hyper|slackrc|zsh-theme|vim-theme|powerstatus}"
+        echo "Usage: $0 {vimrc|zshrc|hyper|slackrc|zsh-theme|vim-theme|powerstatus|cooltabs}"
         exit 1
         ;;
 esac
