@@ -10,7 +10,7 @@ source $ZSH/oh-my-zsh.sh
 
 DISABLE_AUTO_TITLE="true"
 tt () {
-    echo -e "\033];$@\007"
+    echo -n "\033];$@\007"
 }
 
 tt "source"
@@ -18,6 +18,11 @@ tt "source"
 function openfile {
   tt $1
   vim $1
+}
+
+function changed {
+  cd $1
+  tt ${PWD##*/}
 }
 
 ######################
@@ -33,9 +38,10 @@ alias conf="cd $HOME/workspace/super-configs"
 alias update="$HOME/workspace/super-configs/update.zsh"
 alias pre="cd $HOME/workspace/PrebidWrapper"
 alias vim="openfile"
+alias cd="changed"
 
 ######################
-# Include API keys 
+# Include API keys
 ######################
 
 source ~/.zsh-secrets.zsh

@@ -30,6 +30,7 @@ case "$1" in
         echo "updating cooltabs plugin"
 	cp ./plugins/cool-tabs/index.js ~/.hyper_plugins/local/cool-tabs/index.js
 	cp ./plugins/cool-tabs/package.json ~/.hyper_plugins/local/cool-tabs/package.json
+	;;
     hyper)
         echo "updating ~/.hyper.js"
 	cp ./configs/hyper.js ~/.hyper.js
