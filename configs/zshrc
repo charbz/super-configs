@@ -25,6 +25,26 @@ function changed {
   tt ${PWD##*/}
 }
 
+function search {
+  typeset -i i
+  i=0
+  if [ "$2" = "" ]; then
+    com="ack --break --color -i $1 | less"
+  else
+    com="ack --break --color ";
+    for var in "$@";
+      do
+	if (( i > 0 )); 
+	then
+	  com="$com --ignore-dir '$var' "
+	fi
+	i=i+1
+    done
+    com="$com -i $1 | less"
+  fi
+  eval ${com}
+}
+
 ######################
 # Alias Definitions
 ######################
@@ -39,6 +59,7 @@ alias update="$HOME/workspace/super-configs/update.zsh"
 alias pre="cd $HOME/workspace/PrebidWrapper"
 alias vim="openfile"
 alias cd="changed"
+alias ss="search"
 
 ######################
 # Include API keys
